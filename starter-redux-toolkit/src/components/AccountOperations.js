@@ -66,7 +66,7 @@ const AccountOperations = () => {
             <option value="IDR">Indonesia Rupiah</option>
           </select>
 
-          <button onClick={handleDeposit}>Deposit</button>
+          <button onClick={handleDeposit}>Deposit {depositAmount}</button>
         </div>
 
         <div>
