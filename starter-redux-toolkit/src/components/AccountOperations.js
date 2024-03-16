@@ -60,10 +60,10 @@ const AccountOperations = () => {
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
           >
+            <option value="IDR">Indonesia Rupiah</option>
             <option value="USD">US Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound</option>
-            <option value="IDR">Indonesia Rupiah</option>
           </select>
 
           <button onClick={handleDeposit}>Deposit {depositAmount}</button>
