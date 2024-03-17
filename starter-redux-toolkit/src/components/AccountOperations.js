@@ -15,14 +15,16 @@ const AccountOperations = () => {
   const [currency, setCurrency] = useState('IDR')
 
   const dispatch = useDispatch()
-  const { loan: currentLoan, loanPurpose: currentLoanPurpose } = useSelector(
-    (store) => store.account
-  )
+  const {
+    loan: currentLoan,
+    loanPurpose: currentLoanPurpose,
+    isLoading,
+  } = useSelector((store) => store.account)
 
   const handleDeposit = () => {
     if (!depositAmount) return
 
-    dispatch(deposit(depositAmount))
+    dispatch(deposit({ amount: depositAmount, currency }))
     setDepositAmount('')
   }
 
@@ -66,7 +68,9 @@ const AccountOperations = () => {
             <option value="GBP">British Pound</option>
           </select>
 
-          <button onClick={handleDeposit}>Deposit {depositAmount}</button>
+          <button onClick={handleDeposit} disabled={isLoading}>
+            {isLoading ? 'Converting...' : `Deposit ${depositAmount}`}
+          </button>
         </div>
 
         <div>
